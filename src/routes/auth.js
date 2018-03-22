@@ -6,7 +6,7 @@ import { sendResetPasswordEmail } from "../mailer";
 const router = express.Router();
 
 router.post("/", (req, res) => {
-  const { credentials } = req.body;
+  const credentials = req.headers;
   User.findOne({ email: credentials.email }).then(user => {
     if (user && user.isValidPassword(credentials.password)) {
       res.json({ user: user.toAuthJSON() });

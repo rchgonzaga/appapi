@@ -41,7 +41,7 @@ router.get("/search", (req, res) => {
 });
 
 router.get("/fetchPages", (req, res) => {
-  const goodreadsId = req.query.goodreadsId;
+  const {goodreadsId} = req.query.goodreadsId;
 
   request
     .get(
